@@ -17,4 +17,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 
 # running Flask as a module
-CMD ["flask", "run"]
+CMD sh -c "flask db init && flask db migrate && flask db upgrade && python -m flask run --host=0.0.0.0"
